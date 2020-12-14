@@ -154,14 +154,8 @@ char* sched_getPlace(void* obj)
 //convert the name of the type into the enum(integer) value
 int sched_convertType(char* typeName)
 {
-	char* Input_convertType = (char*)typeName;
+	enum convertType{drama=0,movie,advertisement,entertainment,meeting,fitness,privacy};
 	
-	if(Input_convertType==NULL){ //error handler
-		printf("Error : Input convertType");
-	}
-	
-	Input_convertType=schedPtr->convertType; //set the value of convertType
-	
-	return Input_convertType;
+	return drama,movie,advertisement,entertainment,meeting,fitness,privacy;
 }
 
