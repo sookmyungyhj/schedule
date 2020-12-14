@@ -29,7 +29,8 @@ int main(int argc, char *argv[]) {
 	//fill code here ----
 	FILE*fp;
 	fp = fopen("C:\Users\yoonh\Documents\GitHub\schedule.dat","r");
-	if(fp == NULL){
+	
+	if(fp == NULL){ // error handler
 		pritnf("File Open Error!");
 		return 0;
 	}
