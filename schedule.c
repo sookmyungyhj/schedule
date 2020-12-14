@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <malloc.h>
 #include "schedule.h"
 
 #define MAX_TYPE		7
@@ -74,28 +75,31 @@ void sched_print(void* obj)
 
 
 
-
-
-
-
-
-
 //generating a structure of scheduling information
 void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 {
 	schedInfo_t* schedPtr;
 	
 	//error handler
-	if( == NULL){
+	if(schedPtr == NULL){
 		printf("Error");
 		return 0;
 	}
-	//allocate memory and set the member variables
 	
+	//allocate memory and set the member variables
+	schedPtr = (char*)malloc(sizeof(char));
+	
+	if(schedPtr == NULL){
+		printf("Error Allocate Memory \n ");
+		return 0;
+	}
+	
+	*schedPtr = 10000;
+	
+	void free(void*schedPtr); //memory ¹Ý³³ 
 	
 	return (void*)schedPtr;
 }
-
 
 
 //get month information from the scheduler info structure
@@ -108,7 +112,8 @@ float sched_getMonth(void* obj)
 //get type information from the scheduler info structure
 int sched_getType(void* obj)
 {
-	
+	printf("Input the month");
+	scanf("%d",&mon)
 }
 
 

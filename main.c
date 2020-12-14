@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 	void *schedInfo;
 	int option;
 	int cnt;
-	int i;
+	char i;
 	
 	//1. FILE pointer open & error handling
 	//fill code here ----
@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 	list = (void*)list_genList();
 	
 	//2. read from the file
-	while (fscanf(fp,"%d",&i) != EOF)  /* fill code here -- read from the file*/
+	while (fscanf(fp,"%c",&i) != EOF)  /* fill code here -- read from the file*/
 	{	
 		//fill code here -- generate genSchedInfo structure by genSchedInfo function
 		sched_genSchedInfo(char* name, char* place, int type, int month, int day);
@@ -74,6 +74,8 @@ int main(int argc, char *argv[]) {
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 					
 					//fill code this part - end
+					printf(schedInfo);
+					exit_flag = 0;
 				}
 				
 				break;
@@ -90,6 +92,8 @@ int main(int argc, char *argv[]) {
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 					
 					//fill code this part - end
+					printf(sched_getMonth(void* obj));
+					exit_flag = 0;
 				}
 				
 				break;
@@ -106,6 +110,8 @@ int main(int argc, char *argv[]) {
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 					
 					//fill code this part - end
+					printf(sched_getPlace(void* obj));
+					exit_flag = 0;
 				}
 				
 				break;
@@ -126,6 +132,8 @@ int main(int argc, char *argv[]) {
 						schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 						
 						//fill code this part - end
+						printf(sched_convertType(char* typeName));
+						exit_flag = 0;
 					}
 				}
 				else
