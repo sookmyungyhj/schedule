@@ -100,7 +100,7 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 	schedPtr->month=month;
 	schedPtr->day=day;
 	
-	void free(void*schedPtr); //memory ¹Ý³³ 
+	free(schedPtr); //memory ¹Ý³³ 
 	
 	return (void*)schedPtr;
 }
@@ -130,7 +130,7 @@ int sched_getType(void* obj)
 		printf("Error : Input type");
 	}
 	
-	Input_type=schedPtr->type; //set the value of month
+	Input_type=schedPtr->type; //set the value of type
 	
 	return Input_type;
 }
@@ -146,7 +146,7 @@ char* sched_getPlace(void* obj)
 		printf("Error : Input place");
 	}
 	
-	Input_place=schedPtr->place; //set the value of month
+	Input_place=schedPtr->place; //set the value of place
 	
 	return Input_place;
 }
@@ -160,7 +160,7 @@ int sched_convertType(char* typeName)
 		printf("Error : Input convertType");
 	}
 	
-	Input_convertType=schedPtr->convertType; //set the value of month
+	Input_convertType=schedPtr->convertType; //set the value of convertType
 	
 	return Input_convertType;
 }
