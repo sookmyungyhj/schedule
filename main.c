@@ -3,7 +3,7 @@
 #include <string.h>
 #include "schedule.h"
 #include "linkedList.h"
-
+#define _CRT_SECURE_NO_WARNINGS
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
@@ -22,11 +22,13 @@ int main(int argc, char *argv[]) {
 	void *schedInfo;
 	int option;
 	int cnt;
-	char i;
+	
+	int i;
 	
 	//1. FILE pointer open & error handling
 	//fill code here ----
-	fp = *fopen("schedule.dat","r");
+	FILE*fp;
+	fp = fopen("C:\Users\yoonh\Documents\GitHub\schedule.dat","r");
 	if(fp == NULL){
 		pritnf("File Open Error!");
 		return 0;
@@ -36,7 +38,7 @@ int main(int argc, char *argv[]) {
 	list = (void*)list_genList();
 	
 	//2. read from the file
-	while (fscanf(fp,"%c",&i) != EOF)  /* fill code here -- read from the file*/
+	while (fscanf(fp,"%s %s %d %d %d",name,place,type,month,day) != EOF)  /* fill code here -- read from the file*/
 	{	
 		//fill code here -- generate genSchedInfo structure by genSchedInfo function
 		sched_genSchedInfo(char* name, char* place, int type, int month, int day);
@@ -74,7 +76,16 @@ int main(int argc, char *argv[]) {
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 					
 					//fill code this part - end
-					printf(schedInfo);
+					for(i=0;i<15;i++){
+						printf("-");
+					}
+					
+					sched_print(schedInfo);
+					
+					for(i=0;i<15;i++){
+						printf("-");
+					}
+					
 					exit_flag = 0;
 				}
 				
@@ -92,7 +103,16 @@ int main(int argc, char *argv[]) {
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 					
 					//fill code this part - end
-					printf(sched_getMonth(void* obj));
+					for(i=0;i<15;i++){
+						printf("-");
+					}
+					
+					sched_print(schedInfo);
+					
+					for(i=0;i<15;i++){
+						printf("-");
+					}
+					
 					exit_flag = 0;
 				}
 				
@@ -110,8 +130,19 @@ int main(int argc, char *argv[]) {
 					schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 					
 					//fill code this part - end
-					printf(sched_getPlace(void* obj));
+					for(i=0;i<15;i++){
+						printf("-");
+					}
+					
+					sched_print(schedInfo);
+					
+					for(i=0;i<15;i++){
+						printf("-");
+					}
+					
 					exit_flag = 0;
+					
+
 				}
 				
 				break;
@@ -132,7 +163,16 @@ int main(int argc, char *argv[]) {
 						schedInfo = list_getNdObj(ndPtr); //get the object (scheduling info)
 						
 						//fill code this part - end
-						printf(sched_convertType(char* typeName));
+						
+						for(i=0;i<15;i++){
+						printf("-");
+					}
+					
+						sched_print(schedInfo);
+						
+						for(i=0;i<15;i++){
+						printf("-");
+					}
 						exit_flag = 0;
 					}
 				}

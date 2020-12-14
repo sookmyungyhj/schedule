@@ -87,14 +87,18 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 	}
 	
 	//allocate memory and set the member variables
-	schedPtr = (char*)malloc(sizeof(char));
+	schedPtr = (schedInfo_t*)malloc(sizeof(schedInfo_t)); 	//allocate memory
 	
-	if(schedPtr == NULL){
-		printf("Error Allocate Memory \n ");
+	if(schedPtr == NULL){  //error handler
+		printf("Error : Allocate Memory \n ");
 		return 0;
 	}
 	
-	*schedPtr = 10000;
+	strcpy(schedPtr->name,name);  //set the member variables
+	strcpy(schedPtr->place,place);
+	schedPtr->type=type;
+	schedPtr->month=month;
+	schedPtr->day=day;
 	
 	void free(void*schedPtr); //memory ¹Ý³³ 
 	
@@ -105,15 +109,32 @@ void* sched_genSchedInfo(char* name, char* place, int type, int month, int day)
 //get month information from the scheduler info structure
 float sched_getMonth(void* obj)
 {
+	float Input_month;
+	schedInfo_t* schedPtr;
 	
+	if(Input_month==NULL){ //error handler
+		printf("Error : Input month");
+	}
+	
+	Input_month=schedPtr->month; //set the value of month
+	
+	return Input_month;
 }
 
 
 //get type information from the scheduler info structure
 int sched_getType(void* obj)
 {
-	printf("Input the month");
-	scanf("%d",&mon)
+	int Input_type;
+	schedInfo_t* schedPtr;
+	
+	if(Input_type==NULL){ //error handler
+		printf("Error : Input type");
+	}
+	
+	Input_type=schedPtr->type; //set the value of month
+	
+	return Input_type;
 }
 
 
@@ -121,12 +142,30 @@ int sched_getType(void* obj)
 //get place string information from the scheduler info structure
 char* sched_getPlace(void* obj)
 {
-
+	char Input_place;
+	schedInfo_t* schedPtr;
+	
+	if(Input_place==NULL){ //error handler
+		printf("Error : Input place");
+	}
+	
+	Input_place=schedPtr->place; //set the value of month
+	
+	return Input_place;
 }
 
 //convert the name of the type into the enum(integer) value
 int sched_convertType(char* typeName)
 {
+	int Input_convertType;
+	schedInfo_t* schedPtr;
 	
+	if(Input_convertType==NULL){ //error handler
+		printf("Error : Input convertType");
+	}
+	
+	Input_convertType=schedPtr->convertType; //set the value of month
+	
+	return Input_convertType;
 }
 
